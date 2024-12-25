@@ -10,47 +10,23 @@ function randomChoice() {
     
 // }
 
-// user input 
-const userInput = prompt("enter the choices among rock paper and scissor")
+// user input
 
+function userChoice(userSelection) {
+    let computerChoice = randomChoice();
+    let result;
 
-let computerChoice = randomChoice();
+    if (userSelection===computerChoice) {
+        result = "Its a tie" ;
+    } else if (
+        userSelection === 'rock' && computerChoice === 'scissor' ||
+        userSelection === 'paper' && computerChoice === 'rock' ||
+        userSelection === 'scissor' && computerChoice === 'paper'
+    ) {
+        result = "user wins"
+    } else {
+        result = "computer wins"
+    }
 
-
-// rock paper 
-if(computerChoice === 'rock' && userInput.toLowerCase()=== 'paper') {
-    // user wins
-    alert(`c : ${computerChoice} u : ${userInput} user wins`)
-} 
-//  rock scissor 
-else if(computerChoice === 'rock' && userInput.toLowerCase()=== 'scissor') {
-    // user lose 
-    alert(`c : ${computerChoice} u : ${userInput} user lose`)
-}
-// paper rock 
-else if (computerChoice === 'paper' && userInput.toLowerCase()=== 'rock') {
-    // user lose 
-    alert(`c : ${computerChoice} u : ${userInput} user lose`)
-} 
-// paper scissor 
-else if (computerChoice === 'paper' && userInput.toLowerCase()=== 'scissor') {
-    // user wins 
-    alert(`c : ${computerChoice} u : ${userInput} user wins`)
-}
-// scissor paper 
-else if (computerChoice === 'scissor' && userInput.toLowerCase()=== 'paper') {
-    // user lose 
-    alert(`c : ${computerChoice} u : ${userInput} user lose`)
-}
-// scissor rock 
-else if (computerChoice === 'scissor' && userInput.toLowerCase()=== 'rock') {
-    // user wins 
-    alert(`c : ${computerChoice} u : ${userInput} user wins`)
-}
-// equals 
-else if (computerChoice === 'rock' && userInput.toLowerCase()=== 'rock' || computerChoice === 'paper' && userInput.toLowerCase()=== 'paper' || computerChoice === 'scissor' && userInput.toLowerCase()=== 'scissor') {
-    alert(`c : ${computerChoice} u : ${userInput} TIE!!!`)
-} 
-else {
-    alert("INVALID INPUT")
+    alert(`computer ${computerChoice} user ${userSelection} \n ${result} `)
 }
