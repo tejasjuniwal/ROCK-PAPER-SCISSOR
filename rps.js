@@ -13,10 +13,16 @@ function randomChoice() {
 // user input
 
 // making the scoreboard 
-let scores = {
-    win : 0 ,
-    tie : 0 ,
-    lose : 0 ,
+let scores = JSON.parse(localStorage.getItem('score'));
+
+// adding the reset score Option 
+
+function resetScore() {
+    scores = {
+        win : 0,
+        lose : 0,
+        tie : 0,
+    }
 }
 
 function userChoice(userSelection) {
@@ -42,6 +48,11 @@ function userChoice(userSelection) {
     } else {
         scores.tie++
     }
+
+    // adding a local storage for the scores
+
+        localStorage.setItem('score' , JSON.stringify(scores))
+
     // the output with scoreboard 
     alert(`computer ${computerChoice} user ${userSelection} \n ${result} \n win : ${scores.win} lose : ${scores.lose} tie : ${scores.tie} `)
 }
