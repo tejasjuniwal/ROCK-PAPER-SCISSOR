@@ -1,3 +1,6 @@
+// the scoreboard 
+const scoreBoard = document.querySelector(".scorecount");
+
 // randomly generated the choices 
 
 function randomChoice() {
@@ -16,12 +19,18 @@ function randomChoice() {
 let scores = JSON.parse(localStorage.getItem('score'));
 
 // adding the reset score Option 
-
 function resetScore() {
     scores = {
         win : 0,
         lose : 0,
         tie : 0,
+    }
+
+    if (scoreBoard) {
+        scoreBoard.innerHTML = `
+        Wins : ${scores.win}
+        Loses : ${scores.lose}
+        Ties : ${scores.tie}`
     }
 }
 
@@ -54,5 +63,20 @@ function userChoice(userSelection) {
         localStorage.setItem('score' , JSON.stringify(scores))
 
     // the output with scoreboard 
-    alert(`computer ${computerChoice} user ${userSelection} \n ${result} \n win : ${scores.win} lose : ${scores.lose} tie : ${scores.tie} `)
+    // alert(`computer ${computerChoice} user ${userSelection} \n ${result} \n win : ${scores.win} lose : ${scores.lose} tie : ${scores.tie} `)
+
+    // added a scorboard in it 
+     if (scoreBoard) {
+        scoreBoard.innerHTML = `Computer : ${computerChoice} &emsp;
+        User : ${userSelection} <br><br>
+        Result : ${result} <br><br>
+        Wins : ${scores.win} &emsp;
+        Loses : ${scores.lose} &emsp;
+        Ties : ${scores.tie}`
+     } else {
+        console.error("Scoreboard not found");
+     }
 }
+
+// adding the scoreboard on the web page  
+scoreBoard.innerHTML = `Wins : ${scores.win} &emsp; Loses : ${scores.lose} &emsp; Ties : ${scores.tie}`
