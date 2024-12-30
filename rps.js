@@ -39,20 +39,20 @@ function userChoice(userSelection) {
     let result;
 
     if (userSelection===computerChoice) {
-        result = "Its a tie" ;
+        result = " Tie" ;
     } else if (
         userSelection === 'rock' && computerChoice === 'scissor' ||
         userSelection === 'paper' && computerChoice === 'rock' ||
         userSelection === 'scissor' && computerChoice === 'paper'
     ) {
-        result = "user wins"
+        result = "You wins"
     } else {
-        result = "computer wins"
+        result = "You Lose"
     }
     
-    if (result === "user wins") {
+    if (result === "You wins") {
         scores.win++
-    } else if (result === "computer wins") {
+    } else if (result === "You Lose") {
         scores.lose++
     } else {
         scores.tie++
@@ -68,8 +68,8 @@ function userChoice(userSelection) {
     // added a scorboard in it 
      if (scoreBoard) {
         scoreBoard.innerHTML = `Computer : ${computerChoice} &emsp;
-        User : ${userSelection} <br><br>
-        Result : ${result} <br><br>
+        You : ${userSelection} <br><br>
+         ${result} <br><br>
         Wins : ${scores.win} &emsp;
         Loses : ${scores.lose} &emsp;
         Ties : ${scores.tie}`
