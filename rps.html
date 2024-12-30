@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper scissor</title>
+    <link rel="stylesheet" href="rps.css">
 </head>
 <body>
-    Rock Paper Scissor Game
-    <br><br><br>
-    <div class="actions">
-        <button onclick="userChoice('rock')">Rock</button>
-        <button onclick="userChoice('paper')" >Paper</button>
-        <button onclick="userChoice('scissor')" >Scissor</button>
-        <button onclick=" resetScore()">Reset Score</button>
+    <div class="content">Rock Paper Scissors</div>
+    <br>
+    <li class="btn-list">
+        <button onclick="userChoice('rock')"   id="rck" class="btn-spc" ><img src="rock-emoji.png" alt=""></button>
+        <button onclick="userChoice('paper')"   class="btn-spc" ><img src="paper-emoji.png" alt=""></button>
+        <button onclick="userChoice('scissor')" class="btn-spc" ><img src="scissors-emoji.png" alt=""></button>
+    </li>
         <br>
+        <br>
+        <div class="res"></div>
+        <br>
+        <div class="choice"></div>
         <br>
         <div class="scorecount"></div>
-    </div>
+        <br>
+        <button onclick=" resetScore()" id="rst">Reset Score</button>
     <script src="rps.js" ></script>
 </body>
 </html>
