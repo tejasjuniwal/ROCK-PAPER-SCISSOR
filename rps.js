@@ -1,5 +1,7 @@
 // the scoreboard 
 const scoreBoard = document.querySelector(".scorecount");
+const resl = document.querySelector(".res")
+const choco = document.querySelector(".choice")
 
 // randomly generated the choices 
 
@@ -65,11 +67,16 @@ function userChoice(userSelection) {
     // the output with scoreboard 
     // alert(`computer ${computerChoice} user ${userSelection} \n ${result} \n win : ${scores.win} lose : ${scores.lose} tie : ${scores.tie} `)
 
+    if (choco) {
+        choco.innerHTML = `You : ${userSelection} &emsp;&emsp; Computer : ${computerChoice}`
+    }
+
+    if (resl) {
+        resl.innerHTML = `${result}`
+    }
     // added a scorboard in it 
      if (scoreBoard) {
-        scoreBoard.innerHTML = `Computer : ${computerChoice} &emsp;
-        You : ${userSelection} <br><br>
-         ${result} <br><br>
+        scoreBoard.innerHTML = `
         Wins : ${scores.win} &emsp;
         Loses : ${scores.lose} &emsp;
         Ties : ${scores.tie}`
