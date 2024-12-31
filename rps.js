@@ -3,21 +3,16 @@ const scoreBoard = document.querySelector(".scorecount");
 const resl = document.querySelector(".res")
 const choco = document.querySelector(".choice")
 
-// randomly generated the choices 
+// randomly generated the choices for the computer 
 
 function randomChoice() {
     const choice = ['rock' , 'paper' , 'scissor']
     return choice[Math.floor(Math.random()*3)]
 }
 
-// for (let i = 0; i < 10; i++) {
-//     console.log(computerChoice)
-    
-// }
-
-// user input
 
 // making the scoreboard 
+// and converted the string into the object with JSON 
 let scores = JSON.parse(localStorage.getItem('score'));
 
 // adding the reset score Option 
@@ -36,6 +31,8 @@ function resetScore() {
     }
 }
 
+
+// Game Logic...
 function userChoice(userSelection) {
     let computerChoice = randomChoice();
     let result;
@@ -61,7 +58,7 @@ function userChoice(userSelection) {
     }
 
     // adding a local storage for the scores
-
+// with JSON converting the object to string here 
         localStorage.setItem('score' , JSON.stringify(scores))
 
     // the output with scoreboard 
